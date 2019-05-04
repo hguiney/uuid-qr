@@ -31,7 +31,7 @@ class QR extends React.Component {
 
   render() {
     return (
-      <img src={ this.getUrl() } alt="QR code" />
+      <img className={ this.props.className } src={ this.getUrl() } alt="QR code" />
     );
   }
 }

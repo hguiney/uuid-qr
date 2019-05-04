@@ -1,6 +1,22 @@
-.App {
-  height: 100vh;
+* {
+  box-sizing: border-box;
+}
+
+.--center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.App {
+  height: 100vh;
+  background-color: mediumslateblue
+}
+
+.QR {
+  min-width: 198px;
+  min-height: 198px;
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: .5rem .5rem .75rem rgba( 0, 0, 0, 0.5 );
 }

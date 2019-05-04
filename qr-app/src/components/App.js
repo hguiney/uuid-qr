@@ -32,8 +32,8 @@ class App extends React.Component {
     }
 
     return (
-      <main className="App">
-        { this.uuidIsValid() ? <QR data={ uuid } /> : <h2>Invalid UUID</h2> }
+      <main className="App --center">
+        { this.uuidIsValid() ? <QR className="QR --center" data={ uuid } /> : <h2 className="QR --center">Invalid UUID</h2> }
       </main>
     );
   }
