@@ -18,7 +18,7 @@ describe( '<App />', () => {
       },
     } );
 
-    expect( component.containsMatchingElement( <QR /> ) ).toBeTruthy();
+    expect( component.containsMatchingElement( QR ) ).toBeTruthy();
   } );
 
   it( 'reports invalid UUIDs', () => {
