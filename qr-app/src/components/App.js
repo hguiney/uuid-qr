@@ -1,31 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import QR from './QR';
+
 import './App.css';
 
 class App extends React.Component {
-  state = {
-    "uuid": "",
-  };
-
   static propTypes = {
-    "match": PropTypes.object,
+    "match": PropTypes.shape( {
+      "uuid": PropTypes.string,
+    } ),
   };
-
-  componentDidMount() {
-    if ( this.props.match ) {
-      const { params } = this.props.match;
-
-      this.setState( {
-        "uuid": params.uuid,
-      } );
-    }
-  }
 
   render() {
-    const uuid = ( this.state.uuid || 'no uuid' );
+    let uuid;
+
+    if ( this.props.match ) {
+      ( { uuid } = this.props.match.params );
+    } else {
+      uuid = null;
+    }
 
     return (
-      <main className="App">{ uuid }</main>
+      <main className="App">
+        <QR data={ uuid } />
+      </main>
     );
   }
 }
