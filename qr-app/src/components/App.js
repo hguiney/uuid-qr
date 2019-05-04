@@ -11,6 +11,17 @@ class App extends React.Component {
     } ),
   };
 
+  uuidIsValid() {
+    // https://www.regextester.com/99148
+    const pattern = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/;
+
+    if ( this.props.match && this.props.match.params ) {
+      return pattern.test( this.props.match.params.uuid );
+    }
+
+    return false;
+  }
+
   render() {
     let uuid;
 
@@ -22,7 +33,7 @@ class App extends React.Component {
 
     return (
       <main className="App">
-        <QR data={ uuid } />
+        { this.uuidIsValid() ? <QR data={ uuid } /> : <h2>Invalid UUID</h2> }
       </main>
     );
   }
