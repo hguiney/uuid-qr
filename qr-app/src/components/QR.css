@@ -1,0 +1,7 @@
+.QR {
+  min-width: 198px;
+  min-height: 198px;
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: .5rem .5rem .75rem rgba( 0, 0, 0, 0.5 );
+}

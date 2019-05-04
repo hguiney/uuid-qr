@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './QR.css';
+
 class QR extends React.Component {
   static propTypes = {
     "size": PropTypes.string,
