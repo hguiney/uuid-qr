@@ -5,3 +5,14 @@
   padding: 1.5rem;
   box-shadow: .5rem .5rem .75rem rgba( 0, 0, 0, 0.5 );
 }
+
+a > .QR {
+  position: relative;
+  transition: ease .75s top, ease .75s left, ease .125s box-shadow;
+}
+
+a:active > .QR {
+  top: .75rem;
+  left: .75rem;
+  box-shadow: 0 0 .75rem rgba( 0, 0, 0, 0.5 );
+}
