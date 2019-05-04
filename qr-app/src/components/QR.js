@@ -5,11 +5,16 @@ class QR extends React.Component {
   static propTypes = {
     "size": PropTypes.string,
     "data": PropTypes.string,
+    "linkTo": PropTypes.string,
   };
 
   static apiEndpoint = 'https://api.qrserver.com/v1/create-qr-code/';
 
-  getUrl() {
+  shouldBeLinked() {
+    return !!this.props.linkTo;
+  }
+
+  getImgSrc() {
     const params = [];
 
     if ( this.props ) {
@@ -19,7 +24,9 @@ class QR extends React.Component {
         params.push( `size=150x150` );
       }
 
-      if ( this.props.data ) {
+      if ( this.props.linkTo ) {
+        params.push( `data=${encodeURIComponent( this.props.linkTo )}` );
+      } else if ( this.props.data ) {
         params.push( `data=${this.props.data}` );
       }
 
@@ -30,8 +37,11 @@ class QR extends React.Component {
   }
 
   render() {
+    const img = <img className={ this.props.className } src={ this.getImgSrc() } alt="QR code" />;
     return (
-      <img className={ this.props.className } src={ this.getUrl() } alt="QR code" />
+      this.shouldBeLinked()
+        ? <a href={ this.props.linkTo }>{ img }</a>
+        : img
     );
   }
 }
