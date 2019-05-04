@@ -43,6 +43,7 @@ class QR extends React.Component {
     return (
       this.shouldBeLinked()
         ? <a
+            title="Follow QR code link"
             href={ this.props.linkTo }
             // onClick={ event => event.preventDefault() }
           >{ img }</a>
