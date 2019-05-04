@@ -2,6 +2,10 @@
 
 ## Unimplemented
 
+### Styled `div`
+
+It’s possible to style the QR code to appear raised without using an extra `div`. While it may not make a huge difference for a project of this size, `div`s can accumulate over time which leads to decreased readability for developers, larger bundle sizes being shipped to users (especially in an SPA), and decreased accessibility if they are relied on in place of more semantic options.
+
 ### Image Mocking
 
 In my unit tests, I originally set out to test whether A.) an image rendered onscreen at all; and B.) whether the API-rendered image matched a saved version of the expected QR code. However this was not achievable in a reasonable time frame.
