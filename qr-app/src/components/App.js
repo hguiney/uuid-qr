@@ -46,11 +46,11 @@ class App extends React.Component {
         <header className="App__header">
           <h1 className="App__heading">UUID-QR</h1>
         </header>
-        <main className="App__content center-hv">
+        <main className="App__content center-contents-bidirectionally">
         {
           this.uuidIsValid()
-            ? <QR className="QR center-hv" linkTo={ this.getLinkUrl() } />
-            : <h2 className="QR center-hv">Invalid UUID</h2>
+            ? <QR className="QR center-contents-bidirectionally" linkTo={ this.getLinkUrl() } />
+            : <h2 className="QR center-contents-bidirectionally">Invalid UUID</h2>
         }
         </main>
       </div>
