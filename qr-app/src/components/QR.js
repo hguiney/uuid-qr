@@ -39,7 +39,14 @@ class QR extends React.Component {
   }
 
   render() {
-    const img = <img className={ this.props.className } src={ this.getImgSrc() } alt="QR code" />;
+    const img = (
+      <img
+        className={ this.props.className }
+        src={ this.getImgSrc() }
+        alt="QR code"
+      />
+    );
+
     return (
       this.shouldBeLinked()
         ? <a

@@ -1,14 +1,20 @@
-* {
-  box-sizing: border-box;
-}
-
-.--center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .App {
-  height: 100vh;
-  background-color: mediumslateblue
+  height: 100%;
+  /* margin-top: -5.4rem; */
+  display: flex;
+  flex-direction: column;
 }
+  .App__header,
+  .App__footer {
+    padding: 1.5rem 0;
+  }
+  .App__header {
+    background-color: white;
+    text-align: center;
+  }
+  .App__heading {
+    margin: 0;
+  }
+  .App__content {
+    flex: 1;
+  }
