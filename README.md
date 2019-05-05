@@ -1,10 +1,65 @@
 # Development Notes
 
+## Naming Things
+<!-- The following is phrased as if there will be future developers on the project: -->
+
+Use <dfn><abbr>DAMP</abbr></dfn> (Descriptive And Meaningful Phrases) for variables, functions, etc. Abbreviations that have become standalone words like `param` and `config` are OK, as are counters like `i` and `j`. But otherwise, aim to decrease the cognitive load for developers reading your code, e.g. `event` over `e`, `error` over `err`, `populationData` over `data`.
+
+## JS Style
+
+camelCase. Do not capitalize abbreviations, e.g. `toJson` instead of `toJSON`.
+
+## CSS Style
+
+To prevent specificity issues, avoid tag and ID selectors unless you are styling something one-of-a-kind like `body` or `#root`.
+
+### Built-in Elements
+
+Follow conventional [BEM style](https://en.bem.info/methodology/naming-convention/#two-dashes-style) for anything too commonplace to warrant componentizing, like links or `code` blocks, all lowercase.
+
+Do not chain element identifiers, and do not attach elements to modified blocks.
+
+#### Correct
+
+```css
+.button {}
+  .button--primary
+  .button__text {}
+  .button__text--loud {}
+```
+
+#### Incorrect
+
+```css
+.button {}
+  .button__text__icon {}
+  .button--primary__text {}
+```
+
+### Custom Elements
+
+Follow BEM style with blocks rendered as UpperCamelCase, matching the name of the tag.
+
+```css
+.Block {}
+  .Block--modifier
+  .Block__element
+  .Block__element--modifier
+```
+
+### Utility Classes
+
+For styles with broad applicability, such as spacing/alignment, use a plain class.
+
+```css
+.utility {}
+```
+
 ## Unimplemented
 
 ### Styled `div`
 
-It’s possible to style the QR code to appear raised without using an extra `div`. While it may not make a huge difference for a project of this size, `div`s can accumulate over time which leads to decreased readability for developers, larger bundle sizes being shipped to users (especially in an SPA), and decreased accessibility if they are relied on in place of more semantic options.
+This implementation defers from the spec slightly, as it’s possible to style the QR code to appear raised without using an extra `div`. While it may not make a huge difference for a project of this size, `div`s can accumulate over time which leads to decreased readability for developers, larger bundle sizes being shipped to users (especially in an SPA), and decreased accessibility if they are relied on in place of more semantic options.
 
 ### Image Mocking
 
