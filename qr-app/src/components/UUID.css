@@ -1,0 +1,12 @@
+.UUID {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+  .UUID__text {
+    font-weight: normal;
+  }
+  .UUID__regenerate {
+    margin-left: 1rem;
+    font-size: .75rem;
+    padding: .5rem;
+  }

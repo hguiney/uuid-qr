@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import QR from './QR';
+import UUID from './UUID';
 
 import './App.css';
 
@@ -45,6 +47,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App__header">
           <h1 className="App__heading">UUID-QR</h1>
+          <UUID uuid={ this.uuid } />
         </header>
         <main className="App__content center-contents-bidirectionally">
         {
