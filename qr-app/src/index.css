@@ -17,6 +17,10 @@
   --purple--dark: darkslateblue;
 
   --text-color: black;
+  --qr-background-color: white;
+
+  /* Effects */
+  --qr-box-shadow: .5rem .5rem .75rem rgba( 0, 0, 0, 0.5 );
 }
 
 html {

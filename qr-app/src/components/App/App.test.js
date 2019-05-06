@@ -30,7 +30,7 @@ describe( '<App />', () => {
         },
       },
     } );
-    const qr = component.find( '.QR' );
+    const qr = component.find( '.App__qr' );
 
     expect( qr.text() ).toBe( 'Invalid UUID' );
   } );

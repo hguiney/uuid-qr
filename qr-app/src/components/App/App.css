@@ -18,3 +18,10 @@
   .App__content {
     flex: 1;
   }
+  /* .App__qr {} */
+  .App__qr.App__qr--invalid {
+    width: 250px;
+    height: 250px;
+    background-color: var( --qr-background-color );
+    box-shadow: var( --qr-box-shadow );
+  }

@@ -1,8 +1,11 @@
 .QR {
-  box-shadow: .5rem .5rem .75rem rgba( 0, 0, 0, 0.5 );
+  box-shadow: var( --qr-box-shadow );
   animation: spin-zoom 1.5s ease-in-out 1;
   transform: translateZ( 0 );
 }
+  .QR.QR--svg {
+    padding: 1.5rem;
+  }
 
 a > .QR {
   position: relative;

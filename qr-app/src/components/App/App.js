@@ -88,11 +88,12 @@ class App extends React.Component {
           this.uuidIsValid()
             ? <QR
                 margin={ 20 }
+                // bgcolor="128-128-128"
                 isLoading={ this.state.isLoading }
-                className="App__qr QR center-contents-bidirectionally"
+                className="App__qr center-contents-bidirectionally"
                 linkTo={ this.getLinkUrl() }
               />
-            : <h2 className="QR center-contents-bidirectionally">Invalid UUID</h2>
+            : <h2 className="App__qr App__qr--invalid center-contents-bidirectionally">Invalid UUID</h2>
         }
         </main>
       </div>

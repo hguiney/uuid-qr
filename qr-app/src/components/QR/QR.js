@@ -112,13 +112,46 @@ class QR extends React.Component {
       }
 
       if ( this.props.format ) {
-        params.push( `qzone=${this.props.format}` );
+        params.push( `format=${this.props.format}` );
       }
 
       return `${QR.apiEndpoint}?${params.join( '&' )}`;
     }
 
     return QR.apiEndpoint;
+  }
+
+  isSvg() {
+    return ( this.props.format === 'svg' );
+  }
+
+  hasBackgroundColor() {
+    return !!this.props.bgcolor;
+  }
+
+  hasMargin() {
+    return !!this.props.margin;
+  }
+
+  getBackgroundColor() { // eslint-disable-line consistent-return
+    /*
+      SVGs returned by the API never have margins, so
+      background-color needs to be manually applied to match.
+    */
+    if ( this.isSvg() && this.hasMargin() ) {
+      if ( this.hasBackgroundColor() ) {
+        // bgcolor format = RRR-GGG-BBB
+        const rgb = this.props.bgcolor.split( '-' );
+
+        return {
+          "backgroundColor": `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`,
+        };
+      }
+
+      return {
+        "backgroundColor": "white",
+      };
+    }
   }
 
   render() {
@@ -130,7 +163,8 @@ class QR extends React.Component {
         <img
           width={ dimensions.width }
           height={ dimensions.height }
-          className={ this.props.className }
+          className={ `QR QR--${this.props.format} ${this.props.className}` }
+          style={ this.getBackgroundColor() }
           src={ this.getImgSrc() }
           alt="QR code"
         />
