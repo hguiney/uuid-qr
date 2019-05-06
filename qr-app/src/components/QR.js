@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Loading from './Loading';
+
 import './QR.css';
 
 class QR extends React.Component {
@@ -8,7 +10,12 @@ class QR extends React.Component {
     "size": PropTypes.string,
     "data": PropTypes.string,
     "linkTo": PropTypes.string,
+    "isLoading": PropTypes.bool,
   };
+
+  static defaultProps = {
+    "isLoading": true,
+  }
 
   static apiEndpoint = 'https://api.qrserver.com/v1/create-qr-code/';
 
@@ -40,16 +47,20 @@ class QR extends React.Component {
 
   render() {
     const img = (
-      <img
-        className={ this.props.className }
-        src={ this.getImgSrc() }
-        alt="QR code"
-      />
+      <>
+        <Loading isVisible={ this.props.isLoading } />
+        <img
+          className={ this.props.className }
+          src={ this.getImgSrc() }
+          alt="QR code"
+        />
+      </>
     );
 
     return (
       this.shouldBeLinked()
         ? <a
+            className="qr-container"
             title="Follow QR code link"
             href={ this.props.linkTo }
             // onClick={ event => event.preventDefault() }

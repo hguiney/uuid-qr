@@ -7,52 +7,90 @@ import UUID from './UUID';
 import './App.css';
 
 class App extends React.Component {
-  constructor( props ) {
-    super( props );
-
-    this.linkEndpoint = 'https://interviews.getmarlo.com/';
-    this.uuid = this.gotUuid() ? this.props.match.params.uuid : '';
-  }
-
   static propTypes = {
-    "match": PropTypes.shape( {
-      "uuid": PropTypes.string,
-    } ),
+    "match": PropTypes.object,
+    "location": PropTypes.object,
+    "history": PropTypes.object,
   };
 
+  state = {
+    "uuid": this.getUuidFromProps(),
+    "isLoading": true,
+  }
+
+  linkEndpoint = 'https://interviews.getmarlo.com/';
+
+  getUuidFromProps() {
+    return ( this.receivedUuidFromUrl() ? this.props.match.params.uuid : '' );
+  }
+
   getLinkUrl() {
-    if ( this.uuid ) {
-      return `${this.linkEndpoint}?id=${this.uuid}`;
+    if ( this.state.uuid ) {
+      return `${this.linkEndpoint}?id=${this.state.uuid}`;
     }
 
     return this.linkEndpoint;
   }
 
-  gotUuid() {
-    return ( this.props.match && this.props.match.params && this.props.match.params.uuid );
+  receivedUuidFromUrl() {
+    return (
+      this.props.match
+      && this.props.match.params
+      && this.props.match.params.uuid
+    );
   }
 
   hasUuid() {
-    return !!this.uuid;
+    return !!this.state.uuid;
   }
 
   uuidIsValid() {
     // https://www.regextester.com/99148
     const pattern = /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/;
-    return pattern.test( this.uuid );
+    return pattern.test( this.state.uuid );
+  }
+
+  onRegenerate = ( uuid ) => {
+    this.props.history.push( `/${uuid}` );
+  }
+
+  componentDidUpdate() {
+    const uuid = this.getUuidFromProps();
+
+    if ( this.state.uuid !== uuid ) {
+      this.setState( {
+        uuid,
+        "isLoading": true,
+      } );
+    }
+  }
+
+  /*
+    The onLoad event bubbles up from the QR <img />.
+    Handling it at this level allows us to hide the spinner
+    after the new API response is returned.
+  */
+  onLoad = () => {
+    this.setState( {
+      "isLoading": false,
+    } );
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="App" onLoad={ this.onLoad }>
         <header className="App__header">
           <h1 className="App__heading">UUID-QR</h1>
-          <UUID uuid={ this.uuid } />
+          <UUID uuid={ this.state.uuid } onRegenerate={ this.onRegenerate } />
         </header>
         <main className="App__content center-contents-bidirectionally">
         {
           this.uuidIsValid()
-            ? <QR className="QR center-contents-bidirectionally" linkTo={ this.getLinkUrl() } />
+            ? <QR
+                isLoading={ this.state.isLoading }
+                className="QR center-contents-bidirectionally"
+                linkTo={ this.getLinkUrl() }
+              />
             : <h2 className="QR center-contents-bidirectionally">Invalid UUID</h2>
         }
         </main>
