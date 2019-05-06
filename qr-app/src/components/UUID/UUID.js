@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import uuid from 'uuid/v4';
+import uuidv4 from 'uuid/v4';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
@@ -13,8 +13,12 @@ class UUID extends React.Component {
     "onRegenerate": PropTypes.func,
   };
 
+  static generate() {
+    return uuidv4();
+  }
+
   onRegenerate = () => {
-    this.props.onRegenerate( uuid() );
+    this.props.onRegenerate( uuidv4() );
   }
 
   render() {

@@ -42,7 +42,7 @@ class QR extends React.Component {
   static defaultProps = {
     // "size": "250x250",
     "format": "svg",
-    "isLoading": true,
+    "isLoading": false,
   }
 
   static apiEndpoint = 'https://api.qrserver.com/v1/create-qr-code/';

@@ -13,6 +13,22 @@ class App extends React.Component {
     "history": PropTypes.object,
   };
 
+  constructor( props ) {
+    super( props );
+
+    if ( !this.receivedUuidFromUrl() ) {
+      const uuid = UUID.generate();
+
+      this.state = {
+        uuid,
+      };
+
+      if ( this.props.history ) {
+        this.props.history.replace( `/${uuid}` );
+      }
+    }
+  }
+
   state = {
     "uuid": this.getUuidFromProps(),
     "isLoading": false,
