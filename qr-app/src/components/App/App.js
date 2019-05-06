@@ -87,6 +87,7 @@ class App extends React.Component {
         {
           this.uuidIsValid()
             ? <QR
+                margin={ 20 }
                 isLoading={ this.state.isLoading }
                 className="QR center-contents-bidirectionally"
                 linkTo={ this.getLinkUrl() }
