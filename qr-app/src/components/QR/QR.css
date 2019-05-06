@@ -3,9 +3,6 @@
   animation: spin-zoom 1.5s ease-in-out 1;
   transform: translateZ( 0 );
 }
-  .QR.QR--svg {
-    padding: 1.5rem;
-  }
 
 a > .QR {
   position: relative;

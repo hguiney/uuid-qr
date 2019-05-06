@@ -103,7 +103,8 @@ class QR extends React.Component {
         params.push( `bgcolor=${this.props.bgcolor}` );
       }
 
-      if ( this.props.margin ) {
+      /* SVGs returned by the API never have margins */
+      if ( !this.isSvg() && this.props.margin ) {
         params.push( `margin=${this.props.margin}` );
       }
 
@@ -133,6 +134,14 @@ class QR extends React.Component {
     return !!this.props.margin;
   }
 
+  getPadding() {
+    if ( this.isSvg() && this.hasMargin() ) {
+      return `${this.props.margin}px`;
+    }
+
+    return '';
+  }
+
   getBackgroundColor() { // eslint-disable-line consistent-return
     /*
       SVGs returned by the API never have margins, so
@@ -143,15 +152,18 @@ class QR extends React.Component {
         // bgcolor format = RRR-GGG-BBB
         const rgb = this.props.bgcolor.split( '-' );
 
-        return {
-          "backgroundColor": `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`,
-        };
+        return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
       }
 
-      return {
-        "backgroundColor": "white",
-      };
+      return "white";
     }
+  }
+
+  getStyle() {
+    return {
+      "padding": this.getPadding(),
+      "backgroundColor": this.getBackgroundColor(),
+    };
   }
 
   render() {
@@ -164,7 +176,7 @@ class QR extends React.Component {
           width={ dimensions.width }
           height={ dimensions.height }
           className={ `QR QR--${this.props.format} ${this.props.className}` }
-          style={ this.getBackgroundColor() }
+          style={ this.getStyle() }
           src={ this.getImgSrc() }
           alt="QR code"
         />
