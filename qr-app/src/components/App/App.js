@@ -15,7 +15,7 @@ class App extends React.Component {
 
   state = {
     "uuid": this.getUuidFromProps(),
-    "isLoading": true,
+    "isLoading": false,
   }
 
   linkEndpoint = 'https://interviews.getmarlo.com/';
@@ -89,7 +89,7 @@ class App extends React.Component {
             ? <QR
                 margin={ 20 }
                 isLoading={ this.state.isLoading }
-                className="QR center-contents-bidirectionally"
+                className="App__qr QR center-contents-bidirectionally"
                 linkTo={ this.getLinkUrl() }
               />
             : <h2 className="QR center-contents-bidirectionally">Invalid UUID</h2>
