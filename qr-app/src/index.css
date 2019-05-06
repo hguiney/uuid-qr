@@ -15,6 +15,12 @@
   --purple--medium: mediumslateblue;
   --purple: slateblue;
   --purple--dark: darkslateblue;
+
+  --text-color: black;
+}
+
+html {
+  color: var( --text-color );
 }
 
 body {
@@ -51,7 +57,7 @@ code {
   border: .0625em solid #9a9a9a;
   text-decoration: none;
   font-weight:normal;
-  color: #000;
+  color: var( --text-color );
   text-shadow: 0 .0625em 0 rgba( 255, 255, 255, .09 );
   background: #ebebeb;
   background: linear-gradient(

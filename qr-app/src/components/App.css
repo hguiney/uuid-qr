@@ -5,7 +5,7 @@
 }
   .App__header,
   .App__footer {
-    padding: 1.5rem 0;
+    padding: 1.5rem;
   }
   .App__header {
     background-color: white;
