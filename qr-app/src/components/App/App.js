@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import QR from './QR';
-import UUID from './UUID';
+import QR from '../QR/QR';
+import UUID from '../UUID/UUID';
 
 import './App.css';
 

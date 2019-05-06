@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 
 import App from './App';
-import QR from './QR';
+import QR from '../QR/QR';
 
 describe( '<App />', () => {
   it( 'renders a QR element', () => {
@@ -23,7 +23,6 @@ describe( '<App />', () => {
 
   it( 'reports invalid UUIDs', () => {
     const component = mount( <App /> );
-
     component.setProps( {
       "match": {
         "params": {
@@ -31,7 +30,8 @@ describe( '<App />', () => {
         },
       },
     } );
+    const qr = component.find( '.QR' );
 
-    expect( component.text() ).toBe( 'Invalid UUID' );
+    expect( qr.text() ).toBe( 'Invalid UUID' );
   } );
 } );
