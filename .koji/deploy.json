@@ -1,0 +1,12 @@
+{
+  "deploy": {
+    "subdomain": "uuid-qr.withkoji.com",
+    "frontend": {
+      "output": "build",
+      "commands": [
+        "yarn install",
+        "export NODE_ENV=production && yarn compile"
+      ]
+    }
+  }
+}
