@@ -34,7 +34,7 @@ class App extends React.Component {
     "isLoading": false,
   }
 
-  linkEndpoint = 'https://interviews.getmarlo.com/';
+  linkEndpoint = 'https://hughx.com/';
 
   getUuidFromProps() {
     return ( this.receivedUuidFromUrl() ? this.props.match.params.uuid : '' );

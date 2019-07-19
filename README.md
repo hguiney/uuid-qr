@@ -1,5 +1,7 @@
 # Development Notes
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Naming Things
 <!-- The following is phrased as if there will be future developers on the project: -->
 
@@ -56,10 +58,6 @@ For styles with broad applicability, such as spacing/alignment, use a plain clas
 ```
 
 ## Unimplemented
-
-### Styled `div`
-
-This implementation defers from the spec slightly, as it’s possible to style the QR code to appear raised without using an extra `div`. While it may not make a huge difference for a project of this size, `div`s can accumulate over time which leads to decreased readability for developers, larger bundle sizes being shipped to users (especially in an SPA), and decreased accessibility if they are relied on in place of more semantic options.
 
 ### Image Mocking
 

@@ -10,8 +10,6 @@
   --global-spacing--modest: calc( var( --global-spacing ) / 2 );
 
   /* Colors */
-  --marlo-green: #54cab4;
-  --marlo-coral: #f78f8d;
   --purple--medium: mediumslateblue;
   --purple: slateblue;
   --purple--dark: darkslateblue;

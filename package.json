@@ -1,6 +1,11 @@
 {
   "name": "uuid-qr",
-  "description": "Hugh Guiney’s Coding Interview for Marlo",
+  "description": "A sample app demonstrating Hugh Guiney’s coding skills",
+  "author": {
+    "name": "Hugh Guiney",
+    "email": "hello@hughguiney.com",
+    "url": "https://hughx.com/"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {
