@@ -1,7 +1,7 @@
 {
   "develop": {
     "frontend": {
-      "path": ".",
+      "path": "frontend",
       "port": 3000,
       "events": {
         "started": "Frontend server started",
@@ -10,7 +10,7 @@
         "build-error": "Frontend build error"
       },
       "startCommand": "yarn start",
-      "linterCommand": "yarn check:tslint"
+      "linterCommand": ""
     }
   }
 }

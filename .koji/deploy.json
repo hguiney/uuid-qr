@@ -4,8 +4,9 @@
     "frontend": {
       "output": "build",
       "commands": [
+        "cd frontend",
         "yarn install",
-        "export NODE_ENV=production && yarn compile"
+        "export NODE_ENV=production && yarn build"
       ]
     }
   }
