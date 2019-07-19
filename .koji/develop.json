@@ -4,10 +4,8 @@
       "path": "frontend",
       "port": 3000,
       "events": {
-        "started": "Frontend server started",
-        "building": "Frontend building",
-        "built": "##frontend-built##",
-        "build-error": "Frontend build error"
+        "built": "Compiled successfully!",
+        "build-error": "The build failed"
       },
       "startCommand": "yarn start",
       "linterCommand": ""
